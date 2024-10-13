@@ -1,0 +1,180 @@
+/* 共通 */
+.body{
+  font-size: 100%;
+  width: 100%;
+}
+.wrapper{
+  max-width: 1100px;
+  margin: 0 auto;
+  color: #010602;
+}
+.section{
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
+.sectionTitle{
+  padding-top: 5px;
+  font-size: 24px;
+}
+
+/* ヘッダー */
+.header{
+  font-size: 18px;
+  padding-top: 10px;
+  margin-right: 50px;
+  color: #9FAF8F;
+}
+.fixed{
+  display: flex;
+  position: fixed;
+  margin-left: 80%
+}
+.header li{
+  display: inline-block;
+  transition: .3s;
+}
+.header li:hover{
+  color: #FFB7D4;
+  transform:scale(0.95, 0.95);
+}
+
+.headerLink{
+  margin-right: 10px;
+}
+/* メインイメージ */
+.topImage{
+  background-image: url(/images/main.jpg);
+  min-height: 100vh;
+  background-repeat:no-repeat;
+  background-size: cover;
+}
+.titles{
+  margin-top: 200px;
+  margin-left: 800px;
+  padding-right: 50px;
+  color: #FAF1EC;
+}
+.mainTitle {
+  font-size: 36px;
+}
+.subTitle{
+  padding-top: 5px;
+  font-size: 24px;
+}
+
+/* Works */
+.works{
+  margin: 50px auto;
+}
+.worksTitle{
+  padding-top: 10px;
+  padding-bottom: 20px;
+  font-size: 20px;
+}
+.Image{
+  transition: .3s;
+}
+.Image:hover{
+  transform:scale(0.95, 0.95);
+  opacity: 0.7;
+}
+
+/* Plofile */
+.plofile{
+  display: flex;
+  justify-content: space-around;
+  margin: 50px auto;
+}
+.borderCircle {
+  border-radius: 9999px;
+}
+.name{
+  font-size: 24px;
+}
+.name2{
+  font-size: 18px;
+}
+/* Contact */
+.contactForm{
+  margin: 30px;
+  width: 100%
+}
+.formName{
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 50%;
+  border: solid 1px #010602;
+  border-radius: 5px;
+}
+.formEmail{
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 50%;
+  border: solid 1px #010602;
+  border-radius: 5px;
+}
+.formInput{
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  border: solid 1px #010602;
+  border-radius: 5px;
+}
+.button{
+  text-align: center;
+}
+.submitBTN{
+  text-align: center;
+  width: 20%;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #B8D994;
+  transition: .3s;
+}
+.submitBTN:hover{
+  background-color: #7EA654;
+  transform:scale(0.95, 0.95);
+}
+
+/* Footer */
+.footer{
+  text-align: center;
+  padding: 10px;
+  background-color: #FAF1EC;
+  font-size: 12px;
+}
+
+/* 作品ページ */
+.worksHeader{
+  position: fixed;
+  margin-left: 90%;
+  font-size: 18px;
+  padding-top: 10px;
+  padding-right: 50px;
+  color: #010602;
+  transition: .3s;
+}
+.worksHeader:hover{
+  color: #FFB7D4;
+  transform:scale(0.95, 0.95);
+}
+.workPhoto{
+  display: flex;
+  justify-content: space-between;
+}
+.workPhotoMin1{
+  margin-bottom: 50px;
+}
+.workPageTitle {
+  font-size: 28px;
+}
+.letters {
+  margin: 10px 0 30px 10px;
+  font-size: 18px;
+}
+.worksWrapper{
+  max-width: 1100px;
+  margin: 20px auto;
+  margin-bottom: 30px;
+  color: #010602;
+}
