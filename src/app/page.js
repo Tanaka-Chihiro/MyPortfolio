@@ -15,34 +15,38 @@ const LusitanaFont = Lusitana({ weight: "400" , subsets: ['latin']});
 const BIZ_UDMinchoFont =BIZ_UDMincho({ weight: "400" , subsets: ['latin']});
 
 const schema  = yup.object({
-  name: yup.string().required('必須項目です'),
+  name: yup.string().required('※必須項目です'),
   email: yup
     .string()
-    .required('必須項目です')
-    .email('正しいメールアドレスを入力してください'),
-    message: yup.string().required('必須項目です'),
+    .required('※必須項目です')
+    .email('※正しいメールアドレスを入力してください'),
+    message: yup.string().required('※必須項目です'),
 })
 
 const Top = () =>{
 
   const router = useRouter();
   const { register, handleSubmit, formState: {errors}, } = useForm ({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(schema)
   });
 
   const onSubmit = async (data) => {
-    const respons = await fetch("api/send", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-    if(respons.status === 200) {
-      router.push("/thanks");
-    } else {
-      alert("正常に送信できませんでした");
-    };
+    try {
+      const respons = await fetch("api/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      if(respons.status === 200) {
+        router.push("/thanks");
+      } else {
+        alert("正常に送信できませんでした");
+      };
+    } catch (error) {
+      console.error('エラーが発生しました:', error);
+    }
   }
 
   return (
@@ -129,18 +133,21 @@ const Top = () =>{
           <form className={styles.contactForm}>
           <div>
               <label htmlFor="name" className={`${BIZ_UDMinchoFont.className}`}>お名前</label>
+              <span className={`${styles.formErrorMessage} ${BIZ_UDMinchoFont.className}`}>{errors.name?.message}</span>
               <br />
-              <input id="name" name="name" type="name" {...register('name')} error={'name' in errors}  helperText={errors.name?.message} className={styles.formName} />
+              <input {...register('name')} className={styles.formName} />
             </div>
             <div>
               <label htmlFor="email" className={`${BIZ_UDMinchoFont.className}`}>メールアドレス</label>
+              <span className={`${styles.formErrorMessage} ${BIZ_UDMinchoFont.className}`}>{errors.email?.message}</span>
               <br />
-              <input id="email" name="email" type="email" {...register('email')} error={'email' in errors}  helperText={errors.email?.message} className={styles.formEmail} placeholder="@sendgrid/mail" />
+              <input {...register('email')} className={styles.formEmail} placeholder="@sendgrid/mail" />
             </div>
             <div>
               <label htmlFor="message" className={`${BIZ_UDMinchoFont.className}`}>問い合わせ内容</label>
+              <span className={`${styles.formErrorMessage} ${BIZ_UDMinchoFont.className}`}>{errors.message?.message}</span>
               <br />
-              <textarea id="message" name="message" {...register('message')} error={'message' in errors}  helperText={errors.message?.message} className={styles.formInput} rows="3"></textarea>
+              <textarea {...register('message')} className={styles.formInput} rows="3"></textarea>
             </div>
             <div className={styles.button}>
               <button type="submit" onClick={handleSubmit(onSubmit)} className={`${styles.submitBTN} ${BIZ_UDMinchoFont.className}`}>送信</button>

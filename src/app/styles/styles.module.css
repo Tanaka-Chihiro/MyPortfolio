@@ -135,6 +135,11 @@
   background-color: #7EA654;
   transform:scale(0.95, 0.95);
 }
+.formErrorMessage{
+  margin-left: 10px;
+  font-size: 14px;
+  color: #ff0000;
+}
 
 /* Footer */
 .footer{
